@@ -3,10 +3,13 @@ import { useQuery } from "@tanstack/react-query";
 
 export const FetchRQ = () => {
 
-  const {data} = useQuery({
+  const {data, isPending, isError, error} = useQuery({
     queryKey: ['posts'],
     queryFn: fetchPosts
   })
+
+  if(isPending) return <p>Loading.......</p>
+  if(isError) return <p>Error: {error || "Something went wrong!"}</p>
 
   return (
     <div>
