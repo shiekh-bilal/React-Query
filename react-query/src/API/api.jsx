@@ -4,9 +4,18 @@ const api = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com"
 })
 
-const fetchPosts = async () => {
+export const fetchPosts = async () => {
   const res = await api.get("/posts");
   return res.status === 200 ? res.data : [];
 };
 
-export default fetchPosts;
+export const fetchInvPost = async (id) => {
+  try {
+    const res = await api.get(`/posts/${id}`)
+    return res.status === 200 ? res.data : [];
+  }
+  catch(e) {
+    console.error(e);
+  }
+};
+//export default fetchPosts;

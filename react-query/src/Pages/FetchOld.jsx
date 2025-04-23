@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import fetchPosts from "../API/api";
+import {fetchPosts} from "../API/api";
 
 export const FetchOld = () => {
 
